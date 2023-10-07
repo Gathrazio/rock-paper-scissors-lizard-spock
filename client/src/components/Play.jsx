@@ -2,7 +2,49 @@ import { IconContext } from 'react-icons';
 import {FaHandRock, FaHandPaper, FaHandScissors, FaHandLizard, FaHandSpock } from 'react-icons/fa'
 
 
-export default function Play ({iconId}) {
+export default function Play ({iconId, updatePlayStats}) {
+    const rules = [
+        {
+            ruleSequence: [1, 2],
+            reason: "Scissors cuts paper!"    
+        },
+        {
+            ruleSequence: [2, 3],
+            reason: "Paper covers rock!"
+        },
+        {
+            ruleSequence: [3, 4],
+            reason: "Rock crushes lizard!"
+        },
+        {
+            ruleSequence: [4, 5],
+            reason: "Lizard poisons Spock"
+        },
+        {
+            ruleSequence: [5, 1],
+            reason: "Spock smashes scissors!"
+        },
+        {
+            ruleSequence: [1, 4],
+            reason: "Scissors decapitates lizard!"
+        },
+        {
+            ruleSequence: [4, 2],
+            reason: "Lizard eats paper!"
+        },
+        {
+            ruleSequence: [2, 5],
+            reason: "Paper disproves Spock!"
+        },
+        {
+            ruleSequence: [5, 3],
+            reason: "Spock vaporizes rock!"
+        },
+        {
+            ruleSequence: [3, 1],
+            reason: "Rock crushes scissors!"
+        }
+    ]
     const determineIconAndPositioning = () => {
         let positionStyles;
         switch (iconId){
@@ -23,9 +65,26 @@ export default function Play ({iconId}) {
                     return [<FaHandSpock />, positionStyles]
             }
     }
+
+    const generateRandomId = () => Math.ceil(Math.random() * 5);
+    const arraysEqual = (arr1, arr2) => arr1[0] === arr2[0] && arr1[1] === arr2[1];
+
+    const playGame = (id) => {
+        const houseId = generateRandomId()
+        if (id === houseId) {
+            updatePlayStats(false, [id, houseId], "It is a draw.")
+        }
+        const winner = rules.find(rule => arraysEqual(rule.ruleSequence, [id, houseId]))
+        if (winner) {
+            updatePlayStats(true, [id, houseId], winner.reason)
+            return;
+        }
+        const houseWinRule = rules.find(rule => arraysEqual(rule.ruleSequence, [houseId, id]));
+        updatePlayStats(false, [id, houseId], houseWinRule.reason)
+    }
     
     return (
-        <div className={`rounded-full border-2 border-black w-fit lg:p-5 sm:p-2 p-5 absolute bg-cyan-400 transition ease-in-out delay-5 hover:bg-cyan-200 hover:cursor-pointer z-50 ${determineIconAndPositioning()[1]}`}>
+        <div className={`rounded-full border-2 border-black w-fit lg:p-5 sm:p-2 p-5 absolute bg-cyan-400 transition ease-in-out delay-5 hover:bg-cyan-200 hover:cursor-pointer z-50 ${determineIconAndPositioning()[1]}`} onClick={() => playGame(iconId)}>
             <IconContext.Provider value={{ className: 'lg:w-20 lg:h-20 w-14 h-14' }}>
                 {determineIconAndPositioning()[0]}
             </IconContext.Provider>

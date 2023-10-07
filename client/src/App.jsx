@@ -4,22 +4,41 @@ import PlayArena from './components/PlayArena.jsx'
 import SheldonQuote from './components/SheldonQuote.jsx'
 import Instructions from './components/Instructions.jsx'
 import Footer from './components/Footer.jsx'
+import Results from './components/Results.jsx'
+import TallyDisplay from './components/TallyDisplay.jsx'
 import arrow from './assets/right-arrow-thin.png'
+import { useState } from 'react'
 
 export default function App() {
-  const exteriorSquareDims = "11rem";
+  const [playStats, setPlayStats] = useState([0, 0]);
+  const [handIds, setHandIds] = useState([0, 0]);
+  const [conclusion, setConclusion] = useState();
+  const [didWin, setDidWin] = useState({});
+  const updatePlayStats = (didWinGame, ids, gameConclusion) => {
+    setHandIds(ids)
+    setConclusion(gameConclusion)
+    if (didWinGame) {
+      setDidWin(true)
+      setPlayStats(prev => [prev[0] + 1, prev[1] + 1])
+      return;
+    }
+    setDidWin(false)
+    setPlayStats(prev => [prev[0], prev[1] + 1])
+  }
+  
 
-  return (
+   return (
     <div className="bg-slate-300 min-h-screen h-fit sm:pb-10 pb-5 relative">
       <Titlebar />
       <Instructions />
+      <TallyDisplay playStats={playStats}/>
       <PlayArena>
         {/* play icons */}
-        <Play iconId={1} />
-        <Play iconId={2} />
-        <Play iconId={3} />
-        <Play iconId={4} />
-        <Play iconId={5} />
+        <Play iconId={1} updatePlayStats={updatePlayStats}/>
+        <Play iconId={2} updatePlayStats={updatePlayStats}/>
+        <Play iconId={3} updatePlayStats={updatePlayStats}/>
+        <Play iconId={4} updatePlayStats={updatePlayStats}/>
+        <Play iconId={5} updatePlayStats={updatePlayStats}/>
         {/* exterior arrows */}
         <img
           src={arrow}
@@ -53,6 +72,7 @@ export default function App() {
           src={arrow}
           className={`absolute lg:right-[4.2rem] lg:top-[11.6rem] lg:h-[25rem] lg:w-[25rem] sm:h-[17rem] sm:w-[17rem] sm:top-[6.7rem] sm:right-[2rem] hidden sm:block -rotate-[36deg]`}/>
       </PlayArena>
+      <Results handIds={handIds} didWin={didWin} conclusion={conclusion}/>
       <SheldonQuote />
       <Footer />
     </div>
