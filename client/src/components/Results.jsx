@@ -36,14 +36,14 @@ export default function Results ({handIds, didWin, conclusion}) {
                 <div className="font-semibold text-teal-900">Conclusion:</div>
                 <div className="w-full flex justify-center items-center">
                     {handIds[0] != 0 && <div className="rounded-full w-fit p-5 absolute bg-sky-400">
-                    <IconContext.Provider value={{ className: 'lg:w-10 lg:h-10 sm:w-8 sm:h-8 w-5 h-5' }}>
+                    <IconContext.Provider value={{ className: 'lg:w-10 lg:h-10 sm:w-7 sm:h-7 w-5 h-5' }}>
                         {determineIcon("player")}
                     </IconContext.Provider>
                     </div>}
                 </div>
                 <div className="w-full h-full flex justify-center items-center">
                     {handIds[1] != 0 && <div className="rounded-full w-fit p-5 absolute bg-sky-400">
-                    <IconContext.Provider value={{ className: 'lg:w-10 lg:h-10 sm:w-8 sm:h-8 w-5 h-5' }}>
+                    <IconContext.Provider value={{ className: 'lg:w-10 lg:h-10 sm:w-7 sm:h-7 w-5 h-5' }}>
                         {determineIcon("house")}
                     </IconContext.Provider>
                     </div>}
