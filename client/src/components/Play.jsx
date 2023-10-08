@@ -18,7 +18,7 @@ export default function Play ({iconId, updatePlayStats}) {
         },
         {
             ruleSequence: [4, 5],
-            reason: "Lizard poisons Spock"
+            reason: "Lizard poisons Spock!"
         },
         {
             ruleSequence: [5, 1],
