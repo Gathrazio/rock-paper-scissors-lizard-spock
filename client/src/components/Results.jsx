@@ -28,28 +28,28 @@ export default function Results ({handIds, didWin, conclusion}) {
     }
 
     return (
-        <div className="w-full bg-amber-300 w-fit h-[200px] lg:h-[190px] sm:h-[180px] sm:mb-[20px]">
+        <div className="w-full bg-amber-300 w-fit h-[160px] sm:h-[160px] sm:mb-[20px]">
             <h2 className="prevent-select text-center font-semibold text-2xl pt-1 text-sky-700">Results</h2>
-            <div className="grid grid-cols-3 grid-rows-[50px_100px] w-full h-full [&>*]:p-1 [&>*]:flex [&>*]:justify-center [&>*]:items-center">
+            <div className="grid grid-cols-3 grid-rows-[50px_60px] w-full h-full [&>*]:p-1 [&>*]:flex [&>*]:justify-center [&>*]:items-center">
                 <div className="prevent-select font-semibold text-teal-900">You played:</div>
                 <div className="prevent-select font-semibold text-teal-900">House played:</div>
                 <div className="prevent-select font-semibold text-teal-900">Conclusion:</div>
-                <div className="w-full flex justify-center items-center">
+                <div className="w-full flex pt-0 items-center">
                     {handIds[0] != 0 && <div className="rounded-full w-fit p-5 absolute bg-sky-400">
-                    <IconContext.Provider value={{ className: 'lg:w-10 lg:h-10 sm:w-7 sm:h-7 w-5 h-5' }}>
+                    <IconContext.Provider value={{ className: 'sm:w-7 sm:h-7 w-5 h-5' }}>
                         {determineIcon("player")}
                     </IconContext.Provider>
                     </div>}
                 </div>
                 <div className="w-full h-full flex justify-center items-center">
                     {handIds[1] != 0 && <div className="rounded-full w-fit p-5 absolute bg-sky-400">
-                    <IconContext.Provider value={{ className: 'lg:w-10 lg:h-10 sm:w-7 sm:h-7 w-5 h-5' }}>
+                    <IconContext.Provider value={{ className: 'sm:w-7 sm:h-7 w-5 h-5' }}>
                         {determineIcon("house")}
                     </IconContext.Provider>
                     </div>}
                 </div>
                 <div>
-                    <div className="prevent-select p-3 text-center text-teal-900">
+                    <div className="prevent-select p-0 font-bold text-center h-[70px] text-teal-900">
                         {determineStatement(didWin)} {conclusion}
                     </div>
                 </div>
