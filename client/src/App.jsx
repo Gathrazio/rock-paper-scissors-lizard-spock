@@ -72,7 +72,7 @@ export default function App() {
           src={arrow}
           className={`prevent-select absolute sm:h-[17rem] sm:w-[17rem] sm:top-[6.7rem] sm:right-[2rem] hidden sm:block -rotate-[36deg]`}/>
       </PlayArena>
-      <Results handIds={handIds} didWin={didWin} conclusion={conclusion}/>
+      {typeof(didWin) == 'object' ? <div></div> : <Results handIds={handIds} didWin={didWin} conclusion={conclusion}/>}
       <SheldonQuote />
       <Footer />
     </div>
