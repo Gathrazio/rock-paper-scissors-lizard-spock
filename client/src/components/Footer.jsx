@@ -17,7 +17,7 @@ export default function Footer () {
                 </div>
             </IconContext.Provider>
             <IconContext.Provider value={{ className: 'lg:w-20 lg:h-20 w-14 h-14 z-50 mx-3 sm:mx-10 transition ease-in-out delay-5 hover:text-slate-100 hover:cursor-pointer' }}>
-                <div onClick={() => window.open("https://noahnjensen.dev", "_blank")}>
+                <div onClick={() => window.open("https://debtnet5.com", "_blank")}>
                     <CgWebsite />
                 </div>
             </IconContext.Provider>
