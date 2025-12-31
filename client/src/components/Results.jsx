@@ -49,7 +49,7 @@ export default function Results ({handIds, didWin, conclusion}) {
                     </div>}
                 </div>
                 <div>
-                    <div className="prevent-select p-0 font-bold text-center h-[70px] text-teal-900">
+                    <div className="prevent-select pl-2 pr-2 pt-0 font-bold text-center h-[70px] text-teal-900">
                         {determineStatement(didWin)} {conclusion}
                     </div>
                 </div>
