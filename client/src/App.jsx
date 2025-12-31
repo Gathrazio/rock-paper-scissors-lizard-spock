@@ -2,6 +2,7 @@ import Titlebar from './components/Titlebar.jsx'
 import Play from './components/Play.jsx'
 import PlayArena from './components/PlayArena.jsx'
 import SheldonQuote from './components/SheldonQuote.jsx'
+import Contextualization from './components/Contextualization.jsx'
 import Instructions from './components/Instructions.jsx'
 import Footer from './components/Footer.jsx'
 import Results from './components/Results.jsx'
@@ -28,7 +29,7 @@ export default function App() {
   
 
    return (
-    <div className="bg-slate-300 min-h-screen h-fit sm:pb-10 pb-5 relative">
+    <div className="bg-slate-300 flex flex-col min-h-screen relative">
       <Titlebar />
       <Instructions />
       <TallyDisplay playStats={playStats}/>
@@ -74,6 +75,7 @@ export default function App() {
       </PlayArena>
       {typeof(didWin) == 'object' ? <div></div> : <Results handIds={handIds} didWin={didWin} conclusion={conclusion}/>}
       <SheldonQuote />
+      <Contextualization />
       <Footer />
     </div>
   )

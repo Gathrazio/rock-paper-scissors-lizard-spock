@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #FBBF24; /* Replace with your desired color (e.g., #FF0000 for red) */
+    margin: 0; /* Remove default margins */
+    padding: 0;
+    width: 100%;
+    /* Ensure body extends to full viewport height */
+    min-height: 100vh;
+}
+
 /* width */
 ::-webkit-scrollbar { 
     width: 10px; 

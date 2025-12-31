@@ -28,7 +28,7 @@ export default function Results ({handIds, didWin, conclusion}) {
     }
 
     return (
-        <div className="w-full bg-amber-300 w-fit h-[160px] sm:h-[160px] sm:mb-[20px]">
+        <div className="w-full bg-amber-300 w-fit h-[180px] sm:h-[160px] sm:mb-[20px]">
             <h2 className="prevent-select text-center font-semibold text-2xl pt-1 text-sky-700">Results</h2>
             <div className="grid grid-cols-3 grid-rows-[50px_60px] w-full h-full [&>*]:p-1 [&>*]:flex [&>*]:justify-center [&>*]:items-center">
                 <div className="prevent-select font-semibold text-teal-900">You played:</div>
@@ -49,7 +49,7 @@ export default function Results ({handIds, didWin, conclusion}) {
                     </div>}
                 </div>
                 <div>
-                    <div className="prevent-select pl-2 pr-2 pt-0 font-bold text-center h-[70px] text-teal-900">
+                    <div className="prevent-select pl-2 pr-2 pt-0 sm:font-bold text-center h-[70px] text-teal-900">
                         {determineStatement(didWin)} {conclusion}
                     </div>
                 </div>
